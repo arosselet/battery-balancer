@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Scrollbar styling for the dark theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111111;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #444444;
+  }
+
+  /* Number input spinners — remove */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .panel-inset {
+    @apply bg-panel-800 border border-panel-500 rounded shadow-inset-panel;
+  }
+  .readout {
+    @apply font-mono text-readout-green;
+  }
+  .readout-amber {
+    @apply font-mono text-readout-amber;
+  }
+  .label-dim {
+    @apply text-xs uppercase tracking-widest text-gray-500 font-sans font-medium;
+  }
+  .btn-primary {
+    @apply px-5 py-2.5 bg-readout-green/10 border border-readout-green/40 text-readout-green
+           font-mono text-sm font-medium rounded
+           hover:bg-readout-green/20 hover:border-readout-green/60
+           disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-readout-green/10
+           transition-colors duration-150;
+  }
+  .btn-secondary {
+    @apply px-4 py-2 bg-panel-600 border border-panel-500 text-gray-400
+           font-mono text-sm rounded
+           hover:bg-panel-500 hover:text-gray-200
+           transition-colors duration-150;
+  }
+}
